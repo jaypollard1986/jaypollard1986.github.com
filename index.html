@@ -1,1 +1,417 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f9b4e650ba.js" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <style>
+        *, ::after, ::before {box-sizing: border-box;}
+        html, body {padding:0; margin:0; font-size:16px; color:#2b2b2b; font-family: 'Montserrat', sans-serif; font-weight:500}
+
+        #header {background:#fff; width: 100%; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4); position:relative; z-index:100}
+        #header .header-container {height:100px; display:flex; justify-content: space-between; flex-direction:row; align-items:center;}
+        #header #header-img {max-width:50px; height:auto}
+        #header .border {height:3px; width:100%; background: linear-gradient(90deg, rgb(134, 0, 74) 0%, rgb(243, 58, 135) 100%)}
+        #header-logo {display:flex; align-items: center}
+        #header-logo .logo-text-block {display:flex; flex-direction: column; align-items: center; padding-left:25px;}
+        #header-logo #logo-text {font-size: 1.6rem; font-weight: 500; letter-spacing: 0.2px; color: #1b1b1b; width: 100%; text-transform: uppercase;}
+        #header-logo #logo-text-sub {font-size: 1rem; font-weight: 300; color: #1b1b1b; width: 100%;}
+        #nav-bar {display: flex; flex-direction: row; align-items: center;}
+        #nav {display:flex; flex-direction:row; flex-grow:1; padding:0; margin:0 20px 0 0; float:right}
+        #nav li {list-style-type: none; margin:0; padding:0}
+        #nav li a i {padding-right:8px; transition: color ease 0.2s}
+        #nav li a:hover i, #nav li a.active i {color: rgb(243, 58, 135)}
+        #nav li a {padding:20px 5px; margin:0 10px; position:relative; text-decoration: none; font-size:1.1rem; font-weight:500; color:#0c0c0c}
+        #nav li a:after {background: none repeat scroll 0 0 transparent; bottom: 10px; content: ""; display: block; height: 2px; left: 50%; position: absolute; background: rgb(243, 58, 135); transition: width 0.3s ease 0s, left 0.3s ease 0s; width: 0;}
+        #nav li a:hover:after, #nav li a.active:after {width: 100%; left: 0}
+        
+        .cta-contact {border-radius:5px; position: relative; background: rgb(243, 58, 135); display:block; color:rgb(255, 255, 255); font-size:1.1rem; font-weight:500; padding:12px 12px; text-decoration: none; transition:all ease-in 0.2s}
+        .cta-contact:hover {background: rgb(255 11 115)}
+
+        #hero-header {height:550px; background:#fff; position:relative;  z-index:1; }
+        #hero-header .hero__scroll--arrow {position:absolute; left:50%; bottom: 10%; margin-left:-22.5px; width: 45px; height: 40px; color:#fff}
+        #hero-header .hero__scroll--arrow a {color:#fff}
+        #hero-header .hero__scroll--bounce {-moz-animation: bounce 2s infinite; -webkit-animation: bounce 2s infinite; animation: bounce 2s infinite}
+
+
+        #hero-header:before {
+            -webkit-animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+                    animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+            background:linear-gradient(173deg, rgba(134, 0, 74, 0.4) 30%, rgba(191, 36, 100, 0.7) 100%), url('https://songesfunambules.com/wp-content/uploads/2016/09/Minimalist-Home-Office-Workspace-Desk-Setup.jpg') no-repeat center;
+            background-size: cover;
+                bottom: 0;
+            content: "";
+                left: 0;
+            opacity: 0;
+            position: absolute;
+                right: 0;
+                top: 0;
+         }
+
+         #hero-header:after {
+  background: transparent;
+  content: "";
+
+  position: absolute;
+
+    top: 90%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  z-index: 0;
+}
+
+       
+
+        @-webkit-keyframes fade-slide-down {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(-4rem);
+                transform: translateY(-4rem);
+                
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                        transform: none;
+            }
+        }
+
+            @keyframes fade-slide-down {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(-4rem);
+                transform: translateY(-4rem);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                        transform: none;
+            }
+        }
+
+        @-moz-keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0); transform: translateY(0);}
+            40% {-moz-transform: translateY(-30px); transform: translateY(-30px);}
+            60% {-moz-transform: translateY(-15px); transform: translateY(-15px);}
+        }
+        @-webkit-keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { -webkit-transform: translateY(0); transform: translateY(0);}
+            40% {-webkit-transform: translateY(-30px); transform: translateY(-30px);}
+            60% {-webkit-transform: translateY(-15px); transform: translateY(-15px);}
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0); -ms-transform: translateY(0); -webkit-transform: translateY(0); transform: translateY(0);}
+            40% {-moz-transform: translateY(-30px); -ms-transform: translateY(-30px); -webkit-transform: translateY(-30px); transform: translateY(-30px);}
+            60% {-moz-transform: translateY(-15px); -ms-transform: translateY(-15px); -webkit-transform: translateY(-15px); transform: translateY(-15px);}
+        }
+
+        .section-intro--center {text-align:center}
+        .section-intro {margin-bottom:50px; display:block}
+        .section-intro h2 {font-size: 2.6rem; text-transform: uppercase; font-weight: 900; color:#171717; margin:0 0 20px}
+        .section-intro p {font-size:1.4rem; font-weight:300; padding: 0 125px; line-height:1.5em}
+
+        #packages {background:#f3f3f3; padding:150px 0; margin:-100px 0 0}
+        #packages .packages-container {display:block}
+        #packages .col {width: 100%; margin: 0 0 25px 0; background: white; border-radius: 5px; position: relative; }
+        #packages .cta {margin-top:auto; padding-top:25px}
+        #packages .cta .price {font-size: 1.6rem; font-weight: 600; padding-bottom: 25px; display: block;}
+        #packages .package {box-shadow:0 0 10px 2px rgb(175 175 175 / 20%); padding:20px; display:flex; flex-direction: column; text-align:center; transition: all ease-in 0.3s;}
+        #packages .package:hover {transform: scale(1.05)}
+        #packages .package h3 {padding:0 0 20px; margin:0; font-weight:700; font-size:1.8rem}
+        #packages .package p {margin:0; padding:10px 0; font-weight: 300}
+
+        #about {background:#fff; padding:150px 0; margin:-65px 0 0; position: relative; z-index: 1; clip-path:polygon(0 0, 100% calc(0% + 4vw), 100% calc(100% - 4vw), 0 100%)}
+        .about__wrap {display:flex; flex-direction:row; justify-content: space-between}
+        .about__profile {margin: 0 100px;}
+        .about__profile h2 {font-size: 2.6rem; text-transform: uppercase; font-weight: 900; color:#171717; margin:0 0 20px}
+        .about__profile-img {text-align:center}
+        .about__profile-img img {height:auto; max-width:350px}
+        .about__profile p {font-size: 1rem; font-weight:300; line-height:1.5em}
+
+        #footer {position: relative}
+        #footer .border {height:3px; width:100%; background: linear-gradient(90deg, rgb(134, 0, 74) 0%, rgb(243, 58, 135) 100%)}
+        
+        .footer-top {background:rgb(19, 19, 19); color: rgb(255, 255, 255); padding:20px 0}
+        .footer-top__wrap {display:flex; flex-direction:row; justify-content: center}
+        .footer-top__item {margin: 0 40px; position: realtive; width:100%}
+        .footer-top__item:last-child {margin-right:0}
+        .footer-top__item:first-child {margin-left:0}
+        .footer-top__item h4 {font-size: 1rem; font-weight:700; margin:0; padding:0 0 10px; color:#b7b7b7}
+        .footer-top__item p {font-size: 0.8rem; font-weight:300; color:#929292; line-height:1.5em; margin:0; padding:10px 0}
+        .footer-top__social {display:flex; flex-direction:row; justify-content: space-between; padding:10px 0 30px}
+        .footer-top__social i {font-size: 1.6rem; margin:0 5px; color:#929292; transition: all ease-in 0.3s}
+        .footer-top__item i:hover {color:#fff; transform: scale(1.05)}
+        .footer-top__item input[type=email] {background:rgb(27, 27, 27); color:#929292; border:none; font-size:0.8rem; font-weight:300; padding:10px}
+
+        .flex__item--grow2 {flex:2 0}
+        .flex__item--grow1 {flex:1 0}
+
+        .footer-bottom {background:rgb(27, 27, 27); color: #5f5f5f; padding:20px 0}
+        .footer-bottom__wrap {display:flex; flex-direction:row; justify-content:space-between}
+        .footer-bottom__copyright, .footer-bottom__date {padding:0; margin:0; font-size:0.8rem; font-weight:300}
+        
+        .container {width:100%; margin:auto; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;}
+        .container-fluid {display:flex; width:100%}
+
+        @media screen and (min-width:320px) {
+            .container {width:100%}
+        }
+        @media screen and (min-width:767px) {
+            .container {width:755px}
+            #packages .packages-container {display:flex; flex-direction:row; justify-content: center;}
+            #packages .col {width:25%; margin:0 15px}
+            #packages .col:last-child {margin-right:0}
+            #packages .col:first-child {margin-left:0}
+        }    
+        @media screen and (min-width:992px) {
+            .container {width:978px}
+           
+        }
+        @media screen and (min-width:1200px) {
+            .container {width:1124px}
+        }
+        @media screen and (min-width:1450px) {
+            .container {width:1420px}
+        }
+        
+        .contact-us-form {background:#f5f5f5; padding:20px 0}
+        #survey-form {width:500px}
+        .form-group {padding:5px 0}
+        
+        label { font-weight:bold}
+        input[type=text], input[type=email], input[type=number], select, textarea {display:block; width:100%; padding:4px; margin:3px 0}
+
+    </style>
+</head>
+<body>   
+    <header id="header">
+        <div class="border"></div>
+        <div class="container header-container">
+            <div id="header-logo">
+                <img id="header-img" src="./logo.png" alt="J-Design Logo" />
+                <div class="logo-text-block">
+                    <span id="logo-text">Pollard</span>
+                    <span id="logo-text-sub">UI & Web Development</span>
+                </div>
+            </div>
+            <nav id="nav-bar">
+               <ul id="nav">
+                   <li><a href="#" class="nav-link active"><i class="fas fa-home"></i>Home</a></li>
+                   <li><a href="#about" class="nav-link"><i class="fas fa-user"></i>About</a></li>
+                   <li><a href="#portfolio" class="nav-link"><i class="fas fa-code"></i>Portfolio</a></li>
+                   <li><a href="#packages" class="nav-link"><i class="fas fa-laptop-code"></i>Packages</a></li>
+               </ul>
+               <a href="#contact" class="cta-contact">Contact Me</a>
+            </nav>
+            
+        </div>      
+    </header>
+    <div id="hero-header">
+        <div class="hero__scroll">
+            <div class="hero__scroll--arrow hero__scroll--bounce">
+                <a href="#services-section">
+                    <i class="fas fa-chevron-down fa-3x" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <section id="about">
+        <div class="container">
+            <div class="about__wrap">
+                <div class="item about__profile flex__item--grow1">
+                    <h2>About Me</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eros urna, dictum sit amet erat sed, elementum lobortis est. Maecenas eget mollis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent mattis, dui sit amet posuere blandit, enim orci congue erat, non placerat dolor nulla sollicitudin tellus.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eros urna, dictum sit amet erat sed, elementum lobortis est. Maecenas eget mollis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent mattis, dui sit amet posuere blandit, enim orci congue erat, non placerat dolor nulla sollicitudin tellus.</p>
+                </div>
+                <div class="item about__profile-img flex__item--grow1">
+                    <img src="./profile.png" alt="profile image" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="packages">
+        <div class="container">
+            <div class="section-intro section-intro--center">
+                <h2>What we offer</h2>
+                <p>We offer three website packages ranging from our silver pakage to or top platinum package. Please see the packages bellow -</p>
+            </div>
+            <div class="packages-container">
+                <div class="col package">
+                    <h3>Silver</h3>
+                    <p>Domain Registry</p>
+                    <p>Email Set Up</p>
+                    <p>Web Design</p>
+                    <p>5 Page Website</p>
+                    <p>Contact Form</p>
+                    <div class="cta">
+                        <span class="price">£499</span>
+                        <a href="#" class="cta-contact">Select</a>
+                    </div>
+                </div>
+                <div class="col package" style="background: linear-gradient(30deg, rgb(134, 0, 74) 30%, rgb(191 36 100) 100%); color:white">
+                    <h3>Platinum</h3>
+                    <p>Domain Registry</p>
+                    <p>Email Set Up</p>
+                    <p>Web Design</p>
+                    <p>15+ Page Website</p>
+                    <p>Contact Form</p>
+                    <p>Open Source CMS</p>
+                    <p>CMS Training</p>
+                    <p>Gallery</p>
+                    <p>Animation</p>
+                    <p>Support</p>
+                    <div class="cta">
+                        <span class="price">£999</span>
+                        <a href="#" class="cta-contact">Select</a>
+                    </div>
+                </div>
+                <div class="col package">
+                    <h3>Gold</h3>
+                    <p>Domain Registry</p>
+                    <p>Email Set Up</p>
+                    <p>Web Design</p>
+                    <p>10 Page Website</p>
+                    <p>Contact Form</p>
+                    <p>Open Source CMS</p>
+                    <p>CMS Training</p>
+                    <div class="cta">
+                        <span class="price">£799</span>
+                        <a href="#" class="cta-contact">Select</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="border"></div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-top__wrap">
+                    <div class="footer-top__item flex__item--grow2">
+                        <h4>Company Information</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu lectus in libero imperdiet luctus at at tortor. Etiam sit amet molestie diam, at facilisis nibh.</p>
+                        <p>Duis eu lectus in libero imperdiet luctus at at tortor.</p>
+                    </div>
+                    <div class="footer-top__item flex__item--grow1">
+                        <h4>Follow Me</h4>
+                        <div class="footer-top__social">
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-soundcloud"></i>
+                            </a>
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" rel="external" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <h4>Newsletter Signup</h4>
+                        <form id="newsletter-form">
+                            <input type="email" id="email" name="email" placeholder="Enter your email address..." required />
+                        </form>
+                    </div>
+                    <div class="footer-top__item flex__item--grow2">
+                        <h4>Contact Information</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom__wrap">
+                    <p class="footer-bottom__copyright"><i class="far fa-copyright"></i> Jay Pollard - UI &amp; Web Development 2019-<span id="year"></span>. All rights reserved.</p>
+                    <div class="footer-bottom__date">3 November 2020, 16:43:22</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        const span = document.querySelector("#year");
+        const date = new Date();
+        const year = date.getFullYear();
+        span.innerHTML = year;
+    </script>
+    <!--<div class="contact-us-form">
+        <div class="container">
+            <form id="survey-form">
+                <div class="form-group">
+                    <label for="name" id="name-label">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email" id="email-label">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email address" required />
+                </div>
+                <div class="form-group">
+                    <label for="number" id="number-label">Age</label>
+                    <input type="number" id="number" name="age" min="16" max="99" placeholder="Your age must be between 16 and 99" required />
+                </div>
+                <div class="form-group">
+                    <label for="dropdown">How did you hear about us?</label>
+                    <select id="dropdown">
+                        <option value="Search Engine">Search Engine</option>
+                        <option value="TV">TV</option>
+                        <option value="Word of mouth">Word of mouth</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>Would you shop hear again?</p>
+                    <input type="radio" value="Yes" name="return" id="yes" checked />
+                    <label for="yes">Yes</label>
+                    <input type="radio" value="No" name="return" id="no" />
+                    <label for="no">No</label>
+                    <input type="radio" value="maybe" name="return" id="maybe" />
+                    <label for="maybe">Maybe</label>
+                </div>
+                <div class="form-group">
+                    <p>What technologies are you interested in?</p>
+                    <input type="checkbox" id="css" value="css" />
+                    <label for="css">CSS</label>
+                    <input type="checkbox" id="html" value="html" />
+                    <label for="html">HTML</label>
+                    <input type="checkbox" id="react" value="react" />
+                    <label for="react">React</label>
+                    <input type="checkbox" id="ruby" value="ruby"/>
+                    <label for="ruby">Ruby</label>
+                    <input type="checkbox" id="python" value="python"/>
+                    <label for="python">Python</label>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" rows="8"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>-->
+
+</body>
+</html>
